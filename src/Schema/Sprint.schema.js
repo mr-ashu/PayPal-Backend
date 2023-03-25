@@ -6,18 +6,17 @@ const sprintSchema = new mongoose.Schema({
         required: true 
     },
     startDate: { 
-        type: Date, 
+        type: String, 
         required: true 
     },
     endDate: { 
-        type: Date, 
+        type: String, 
         required: true 
     },
-    tasks: [{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Task' 
-    }]
-});
+   
+},
+{ timestamps: false }
+);
 
 const SprintModel = model("paysprint", sprintSchema);
 
