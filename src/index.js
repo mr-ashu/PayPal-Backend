@@ -2,7 +2,8 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-const allRouter = require("./Routes/allroutes")
+const sprint = require("./Routes/sprint")
+const user =require("./Routes/person")
  
 const connect = require("./Config/db")
 const PORT = process.env.PORT || 3000
@@ -16,8 +17,8 @@ app.use(cors({
 
  
 
-app.use("/", allRouter);
- 
+app.use("/v",  sprint);
+app.use("/user", user);
 app.listen(PORT, async () => {
     await connect();
     console.log(`listning to http://localhost:${PORT}`)
